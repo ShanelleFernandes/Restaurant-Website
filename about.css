@@ -1,0 +1,128 @@
+body{
+    background-color: #1f4068;
+    margin: 0;
+}
+
+img{
+    float: left;
+    margin-right: 30px;
+}
+
+.about_text{
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #d8e3e7;
+    font-size: 15px;
+    line-height: 25px;
+    padding-top: 40px;
+    padding-bottom: 300px;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Quicksand', sans-serif; 
+    color: #d8e3e7;
+    margin-top: 10px;
+    padding-top: 130px;;
+}
+
+.content{
+    margin: 30px 50px 50px 10px ;
+    padding-bottom: 70px;
+}
+
+#empty{
+    background-color: #1f4068;
+    height: 35px;
+}
+
+.bottom-container {
+    background-color: rgba(210, 241, 252, 0.7);
+    padding: 35px 0 20px;
+    text-align: center;
+  }
+.bottom-container a{
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding:20px;
+    font-weight: bold;
+    color: #f2f2f2;
+    background: linear-gradient(to right, #1f4068, #1f4068 50%, #f2f2f2 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
+}
+
+.bottom-container a:hover {
+    background-position: 0 100%;
+  }
+
+.logo {
+    font-family: 'Poiret One', cursive;
+    line-height: 20px;
+    position: fixed;
+    float: left;
+    margin: 16px 46px;
+    color: #d3e0ea;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.logo a{
+    color: #d3e0ea;
+    text-decoration: none;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    line-height: 60px;
+    top: 0px;
+}
+.menu a {
+    position: relative;
+    display: inline-block;
+    color: #f2f2f2;
+    background: linear-gradient(to right, #1f4068, #1f4068 50%, #f2f2f2 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
+  }
+  
+  .menu a:hover {
+    background-position: 0 100%;
+  }
+
+  
+nav ul {
+    line-height: 20px;
+    list-style: none;
+    background:rgba(210, 241, 252, 0.6);
+    overflow: hidden;
+    color: #d3e0ea;
+    padding: 0;
+    text-align: right;
+    margin: 0;
+    padding-right: 40px;
+}
+
+
+nav ul li {
+    display: inline-block;
+    padding: 15px 20px;;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #d3e0ea;
+    font-size: 25px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
