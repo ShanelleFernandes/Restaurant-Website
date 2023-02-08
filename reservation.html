@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVATIONS</title>
+    <link rel="stylesheet" href="css/reservation.css">
+    <link rel="icon" href="css/favicon (1).ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/11418/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Table reserved successfully!");
+               document.getElementById("name").value = "";
+               document.getElementById("email").value = "";
+               document.getElementById("phone").value = "";
+               document.getElementById("guests").value = "1";
+               document.getElementById("date").value = "";
+               document.getElementById("time").value = "";
+               document.getElementById("table").value = "Indoor";
+               document.getElementById("message").value = "";
+				},
+				error: function(){
+					alert("There was an error :(");
+				}
+			});
+		}
+	</script>
+
+</head>
+<body>
+    
+    <div class="navbar">
+           <nav>
+              <div class="logo">
+               <a href="index.html">LE PRINTEMPS</a>
+              </div>
+              <div class="menu">
+                 <ul>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="menu.html">MENU</a></li>
+                    <li><a href="reservation.html">RESERVATION</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                 </ul>
+              </div>
+           </nav>
+     </div>
+     <div id="empty"></div>
+
+     <div><h1 id="head">RESERVATIONS</h1></div>
+     <p class="desc"> </p>
+
+     <div id=form>
+
+      <form id="myForm">
+         <label for="name" class="label">Full Name:</label><br/>
+         <input type="text" name="Name" placeholder="Name" value="" id="name"  onblur="validateName()"/><br><br><br>
+
+         <label for="email" class="label">Email-id:</label><br>
+         <input type="email" required name="Email-id" placeholder="Email-id" id="email" onblur="validateEmail()" /><br><br><br>
+
+         <label for="phone" class="label">Phone Number:</label><br>
+         <input type="text" name="PhoneNo." placeholder="Phone Number" id="phone" onblur="validatePhoneno()"/><br><br><br>
+
+         <label for="guests" class="label">Number of Guests:</label><br>
+         <select name="Guests" id="guests">
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6+">6+ people</option>
+         </select><br><br><br>
+
+         <label for="date" class="label">Date:</label><br>
+         <input type="date" name="Date" id="date"><br><br><br>
+
+         <label for="time" class="label">Time:</label><br>
+         <input type="time" name="Time" id="time" ><br><br><br>
+
+         <label for="table" class="label">Would you like a table indoors or outdoors?</label><br>
+         <select name="Indoor/Outdoor" id="table">
+            <option value="Indoor">Indoor</option>
+            <option value="Outdoor">Outdoor</option>
+         </select><br><br><br>
+
+         <label for="message" class="label">Any special requests:</label><br>
+         <textarea name="Requests" placeholder="Your message" id='message' rows="10" cols="45" ></textarea><br><br><br>
+
+     </form>
+
+         <button class=btn onclick="SubForm()" > SUBMIT </button>
+
+     </div>
+
+     <script>
+        function validateName(){
+            var a = document.getElementById("name").value;
+            if (a == ''){
+                alert("Please fill the Name field.");
+            }
+        }
+
+        function validateEmail(){
+            var b = document.getElementById("email").value;
+            atpos = b.indexOf("@");
+            dotpos = b.lastIndexOf(".");
+            if (b == ''){
+                alert("Please fill the Email-id field.");
+            }
+            else if(atpos < 1 || ( dotpos - atpos < 2 )) {
+                alert("Please enter correct email ID");
+            }
+          
+        }        
+        
+        function validatePhoneno(){
+            var c = document.getElementById("phone").value;
+            if (c == ''){
+                alert("Please fill the Phone Number field.");
+            }
+            else if (c.length != 10 ){
+                alert("Please enter correct phone number.");
+            }
+        }
+     </script>
+
+
+     <div class="bottom-container">
+        <a href="index.html" ><span id="home">HOME</span></a> 
+        <a href="reservation.html"><span id="nav">RESERVATION</span></a>
+        <a href="contact.html"><span id="nav">CONTACT US</span></a>
+    </div>
+</body>
+</html>

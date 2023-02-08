@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="css/favicon (1).ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/11428/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Login Successful!");
+               document.getElementById("email").value = "";
+               document.getElementById("pwd").value = "";
+               document.getElementById("repwd").value = "";
+				},
+				error: function(){
+					alert("There was an error :(");
+				}
+			});
+		}
+	</script>
+
+</head>
+<body>
+    
+    <div class="navbar">
+           <nav>
+              <div class="logo">
+               <a href="index.html">LE PRINTEMPS</a>
+              </div>
+              <div class="menu">
+                 <ul>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="menu.html">MENU</a></li>
+                    <li><a href="reservation.html">RESERVATION</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                 </ul>
+              </div>
+           </nav>
+     </div>
+     <div id="empty"></div>
+
+     <div>
+         <h1 id="head">LOGIN</h1>
+    </div>
+
+     <div id="form">
+        <form id="myForm">
+
+            <label for="email" class="label">Email-id:</label><br>
+            <input type="text" name="Email" placeholder="Email-id" id="email" onblur="validateEmail()"><br><br><br>
+
+            <label for="pwd" class="label">Password:</label><br>
+            <input type="password" name="Password" placeholder="Password" id="pwd" onblur="validatePassword()"><br><br><br>
+
+            <label for="repwd" class="label">Confirm Password:</label><br>
+            <input type="password" placeholder="Confirm Password" id="repwd" onblur="checkpwd()"><br><br><br>
+
+        </form>
+
+        <button class=btn onclick="SubForm()"> SUBMIT </button>
+
+     </div>
+
+     <script>
+
+         function validateEmail(){
+            var b = document.getElementById("email").value;
+            atpos = b.indexOf("@");
+            dotpos = b.lastIndexOf(".");
+            if (b == ''){
+                alert("Please fill the Email-id field.");
+            }
+            else if(atpos < 1 || ( dotpos - atpos < 2 )) {
+                alert("Please enter correct email ID");
+            }
+          
+        }  
+        
+        function validatePassword(){
+           var a = document.getElementById("pwd").value;
+           if (a == ''){
+                alert("Please enter your password.");
+            }
+        }
+
+         function checkpwd(){
+            var x = document.getElementById("pwd").value;
+            var y = document.getElementById("repwd").value;
+            if( x != y){
+               alert("Password does not match.");
+            }
+         }
+
+     </script>
+
+
+     <div class="bottom-container">
+        <a href="index.html" ><span id="home">HOME</span></a> 
+        <a href="reservation.html"><span id="nav">RESERVATION</span></a>
+        <a href="contact.html"><span id="nav">CONTACT US</span></a>
+    </div>
+</body>
+</html>
